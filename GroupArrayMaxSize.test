@@ -7,7 +7,7 @@ class GroupArrayMaxSize_test : Test {
 public:
     GroupArrayMaxSize_test() : Test() {}
 
-    bool run() {
+    void run() {
         cerr << "Running GroupArrayMaxSize_tests :" << endl;
         GroupArrayMaxSize<int, 3> g;
         ASSERT(g.get_size() == 0);
@@ -38,7 +38,6 @@ public:
         ASSERT(g.get(0) == 12);
         g.clear();
         ASSERT(g.get_size() == 0);
-        cerr << "OK" << endl;
     }
 };
 

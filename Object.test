@@ -13,7 +13,7 @@ class Object_test : Test {
 public:
     Object_test():Test() {}
 
-    bool run() {
+    void run() {
         cerr << "Running Object_tests : " << endl;
 
 #ifdef OBJECT_PROPERTIES
@@ -29,7 +29,6 @@ public:
         cerr << "       You may want to set it to 1 to test more about Object" << endl;
 #endif
 
-        return true;
     }
 };
 

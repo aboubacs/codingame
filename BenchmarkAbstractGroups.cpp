@@ -1,11 +1,11 @@
 #include "BenchmarkAbstractGroups.h"
 #include "GroupArrayMaxSize.h"
-#include "GroupArrayExtendable.h"
+#include "GroupArrayExpansible.h"
 #include "macros.h"
 #include "Optimize.h"
 
 GroupArrayMaxSize<int, 50> global_1;
-GroupArrayExtendable<int, 10> global_2;
+GroupArrayExpansible<int, 10> global_2;
 
 BenchmarkAbstractGroups::BenchmarkAbstractGroups() {
     loop(i, 10) {
@@ -24,13 +24,13 @@ void case1() {
     }
 }
 void case2() {
-    GroupArrayExtendable<int, 40> g;
+    GroupArrayExpansible<int, 40> g;
     loop(i, 30) {
         g.push(42);
     }
 }
 void case5() {
-    GroupArrayExtendable<int, 30> g;
+    GroupArrayExpansible<int, 30> g;
     loop(i, 30) {
         g.push(42);
     }
@@ -42,13 +42,13 @@ void case3() {
     }
 }
 void case4() {
-    GroupArrayExtendable<int, 40> g;
+    GroupArrayExpansible<int, 40> g;
     loop(i, 50) {
         g.push(42);
     }
 }
 void case6() {
-    GroupArrayExtendable<int, 30> g;
+    GroupArrayExpansible<int, 30> g;
     loop(i, 50) {
         g.push(42);
     }
@@ -57,7 +57,7 @@ void case7() {
     GroupArrayMaxSize<int, 50> glou(global_1);
 }
 void case8() {
-    GroupArrayExtendable<int, 10> glou(global_2);
+    GroupArrayExpansible<int, 10> glou(global_2);
 }
 
 void BenchmarkAbstractGroups::run(double allowed_time) {

@@ -12,11 +12,8 @@ Test::Test() {
 
 bool Test::run_all() {
     for (auto test: Test::registered) {
-        if (!test->run()) {
-            return false;
-        } else {
-            cerr << "OK" << endl;
-        }
+        test->run();
+        cerr << "OK" << endl;
     }
     return true;
 }

@@ -5,10 +5,10 @@
 #include "GroupArrayMaxSize.h"
 
 template<typename T, uint32_t S>
-class GroupArrayExtendable : public GroupArrayMaxSize<T,S> {
+class GroupArrayExpansible : public GroupArrayMaxSize<T,S> {
 public:
-    GroupArrayExtendable() : GroupArrayMaxSize<T, S>() {}
-    GroupArrayExtendable(const string& name) : GroupArrayMaxSize<T, S>(name) {}
+    GroupArrayExpansible() : GroupArrayMaxSize<T, S>() {}
+    GroupArrayExpansible(const string& name) : GroupArrayMaxSize<T, S>(name) {}
 
     void push(const T& t) {
         if (is_static_full()) {
@@ -25,7 +25,7 @@ public:
     }
 
     T& get(int i) {
-        ASSERT(i > 0);
+        ASSERT(i >= 0);
         if (i < S) {
             ASSERT(i < this->m_current_size);
             return this->m_data[i];
@@ -36,7 +36,7 @@ public:
     }
 
     void remove(int i) {
-        ASSERT(i > 0);
+        ASSERT(i >= 0);
         if (is_static_full()) {
             if (i < S) {
                 memmove(
@@ -56,7 +56,7 @@ public:
                 this->m_dynamic_data.erase(this->m_dynamic_data.begin()+(i-S));
             }
         } else {
-            ASSERT((this->m_current_size - i - 1) > 0);
+            ASSERT((this->m_current_size - i - 1) >= 0);
             memmove(
                 this->m_data + i,
                 this->m_data + i + 1,

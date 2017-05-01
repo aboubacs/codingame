@@ -9,7 +9,7 @@ public:
     Test();
     static bool run_all();
 private:
-    virtual bool run()=0;
+    virtual void run()=0;
     static vector<Test*> registered;
 };
 
