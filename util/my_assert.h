@@ -2,7 +2,7 @@
 
 #include <assert.h>
 
-#include "config.h"
+#include "../config/config.h"
 
 #ifdef PERFORM_ASSERTS
 #define ASSERT(expr) assert(expr)

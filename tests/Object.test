@@ -4,8 +4,8 @@
 #include <assert.h>
 
 #include "Test.h"
-#include "Object.h"
-#include "my_assert.h"
+#include "../util/Object.h"
+#include "../util/my_assert.h"
 
 using namespace std;
 

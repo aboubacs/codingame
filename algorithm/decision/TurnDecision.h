@@ -1,8 +1,8 @@
 #pragma once //<ck:del>
 
-#include "Object.h"
+#include "../../util/Object.h"
 #include "PlayerDecision.h"
-#include "my_assert.h"
+#include "../../util/my_assert.h"
 
 template<typename PlayerDecisionType, int nb_players>
 class TurnDecision : Object {

@@ -1,8 +1,7 @@
 #include "BenchmarkAbstractGroups.h"
-#include "GroupArrayMaxSize.h"
-#include "GroupArrayExpansible.h"
-#include "macros.h"
-#include "Optimize.h"
+#include "../simulation/data_structures/group/GroupArrayMaxSize.h"
+#include "../simulation/data_structures/group/GroupArrayExpansible.h"
+#include "../util/macros.h"
 
 struct big_object {
     big_object(){};

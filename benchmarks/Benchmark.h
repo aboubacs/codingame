@@ -2,8 +2,8 @@
 
 #include <vector>
 
-#include "Object.h"
-#include "Time.h"
+#include "../util/Object.h"
+#include "../util/Time.h"
 #include "BenchmarkCase.h"
 
 class Benchmark : public Object {

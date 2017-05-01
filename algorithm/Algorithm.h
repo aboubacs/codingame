@@ -2,12 +2,12 @@
 
 #include <vector>
 
-#include "Object.h"
-#include "World.h"
+#include "../util/Object.h"
+#include "../simulation/world/World.h"
 #include "AlgorithmResult.h"
-#include "DecisionGenerator.h"
-#include "Time.h"
-#include "TurnDecision.h"
+#include "decision/DecisionGenerator.h"
+#include "../util/Time.h"
+#include "decision/TurnDecision.h"
 
 template<typename WorldType, typename PlayerDecisionType, int nb_players, int depth>
 class Algorithm : Object {

@@ -3,11 +3,11 @@
 #include <vector>
 #include <type_traits>
 
-#include "Algorithm.h"
-#include "AlgorithmResult.h"
-#include "TurnDecision.h"
-#include "my_assert.h"
-#include "macros.h"
+#include "../../Algorithm.h"
+#include "../../AlgorithmResult.h"
+#include "../TurnDecision.h"
+#include "../../../util/my_assert.h"
+#include "../../../util/macros.h"
 
 template<typename WorldType, typename PlayerDecisionType, int nb_players, int depth>
 class MonteCarlo : Algorithm<WorldType, PlayerDecisionType, nb_players, depth> {

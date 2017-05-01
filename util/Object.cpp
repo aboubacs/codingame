@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "config.h"
+#include "../config/config.h"
 #include "my_assert.h"
 #include "Object.h"
 

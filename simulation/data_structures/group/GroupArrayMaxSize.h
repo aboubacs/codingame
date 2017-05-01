@@ -4,7 +4,7 @@
 #include <cstring>
 
 #include "AbstractGroup.h"
-#include "my_assert.h"
+#include "../../../util/my_assert.h"
 
 template<typename T, uint32_t S>
 class GroupArrayMaxSize : public AbstractGroup<T> {

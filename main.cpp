@@ -3,15 +3,15 @@
 #pragma GCC optimize("omit-frame-pointer")
 #pragma GCC optimize("unroll-loops")
 
-#include "config.h"
+#include "config/config.h"
 
 #include <iostream>
 
-#include "my_assert.h"
+#include "util/my_assert.h"
 
-#include "World.h"
-#include "tests.h"
-#include "benchmarks.h"
+#include "simulation/world/World.h"
+#include "tests/tests.h"
+#include "benchmarks/benchmarks.h"
 
 using namespace std;
 

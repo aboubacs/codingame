@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "config.h"
+#include "../config/config.h"
 #include "Logger.h"
 
 using namespace std;

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "GroupArrayExpansible.h"
-#include "my_assert.h"
+#include "../simulation/data_structures/group/GroupArrayExpansible.h"
+#include "../util/my_assert.h"
 
 class GroupArrayExpansible_test : Test {
 public:

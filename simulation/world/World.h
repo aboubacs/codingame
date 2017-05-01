@@ -1,7 +1,7 @@
 #pragma once //<ck:del>
 
-#include "Object.h"
-#include "TurnDecision.h"
+#include "../../util/Object.h"
+#include "../../algorithm/decision/TurnDecision.h"
 
 template<typename PlayerDecisionType, int nb_players>
 class World : Object {

@@ -1,7 +1,7 @@
 #include "BenchmarkCase.h"
 #include "Benchmark.h"
-#include "Util.h"
-#include "my_assert.h"
+#include "../util/Util.h"
+#include "../util/my_assert.h"
 
 BenchmarkCase::BenchmarkCase(const string &name, void (*fct)())
     : m_fct(fct), m_name(name) {}

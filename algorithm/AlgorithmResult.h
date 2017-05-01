@@ -1,8 +1,8 @@
 #pragma once //<ck:del>
 
-#include "Object.h"
-#include "PlayerDecision.h"
-#include "macros.h"
+#include "../util/Object.h"
+#include "decision/PlayerDecision.h"
+#include "../util/macros.h"
 
 template <typename PlayerDecisionType, int depth>
 class AlgorithmResult : Object {
