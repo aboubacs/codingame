@@ -10,7 +10,6 @@ public:
     void run() {
         cerr << "Running GroupArrayExpansible :" << endl;
 
-        // Common part with max_size
         GroupArrayExpansible<int, 3> g;
         ASSERT(g.get_size() == 0);
         g.push(42);
@@ -31,8 +30,6 @@ public:
         ASSERT(g.get(0) == 12);
         g.clear();
         ASSERT(g.get_size() == 0);
-
-        // End common part // Start expansible tests
         g.clear();
         ASSERT(g.get_size() == 0);
         g.push(0);
@@ -45,7 +42,6 @@ public:
         g.push(4);
         ASSERT(g.get_size() == 5);
         ASSERT(g.get(4) == 4);
-
         g.remove(1);
         ASSERT(g.get_size() == 4);
         ASSERT(g.get(3) == 4);
@@ -75,7 +71,6 @@ public:
         ASSERT(g.get_size() == 2);
         ASSERT(g.get(1) == 2);
         ASSERT(g.get(0) == 0);
-
         g.push(8); g.push(8);
         ASSERT(g.get_size() == 4);
         g.remove(1);
@@ -83,7 +78,6 @@ public:
         ASSERT(g.get(0) == 0);
         ASSERT(g.get(1) == 8);
         ASSERT(g.get(2) == 8);
-
     }
 };
 

@@ -17,42 +17,23 @@ BenchmarkAbstractGroups::BenchmarkAbstractGroups() {
 }
 
 
-void case1() {
-    GroupArrayMaxSize<int, 50> g;
-    loop(i, 30) {
+
+template<int s, int l>
+void push_max_size() {
+    GroupArrayMaxSize<int, s> g;
+    loop(i, l) {
         g.push(42);
     }
 }
-void case2() {
-    GroupArrayExpansible<int, 40> g;
-    loop(i, 30) {
+
+template<int s, int l>
+void push_expansible() {
+    GroupArrayExpansible<int, s> g;
+    loop(i, l) {
         g.push(42);
     }
 }
-void case5() {
-    GroupArrayExpansible<int, 30> g;
-    loop(i, 30) {
-        g.push(42);
-    }
-}
-void case3() {
-    GroupArrayMaxSize<int, 50> g;
-    loop(i, 50) {
-        g.push(42);
-    }
-}
-void case4() {
-    GroupArrayExpansible<int, 40> g;
-    loop(i, 50) {
-        g.push(42);
-    }
-}
-void case6() {
-    GroupArrayExpansible<int, 30> g;
-    loop(i, 50) {
-        g.push(42);
-    }
-}
+
 void case7() {
     GroupArrayMaxSize<int, 50> glou(global_1);
 }
@@ -66,12 +47,12 @@ void BenchmarkAbstractGroups::run(double allowed_time) {
     cerr << "Running benckmark Groups :" << endl;
     this->m_time_control.set_checkpoint();
 
-    this->register_case(new BenchmarkCase("Push 30 int with max size 50", &case1));
-    this->register_case(new BenchmarkCase("Push 30 int with extended 40", &case2));
-    this->register_case(new BenchmarkCase("Push 30 int with extended 30", &case5));
-    this->register_case(new BenchmarkCase("Push 50 int with max size 50", &case3));
-    this->register_case(new BenchmarkCase("Push 50 int with extended 40", &case4));
-    this->register_case(new BenchmarkCase("Push 50 int with extended 30", &case6));
+    this->register_case(new BenchmarkCase("Push 30 int with max size 50", push_max_size<50,30>));
+    this->register_case(new BenchmarkCase("Push 30 int with extended 40", push_expansible<40,30>));
+    this->register_case(new BenchmarkCase("Push 30 int with extended 30", push_expansible<30,30>));
+    this->register_case(new BenchmarkCase("Push 50 int with max size 50", push_max_size<50,50>));
+    this->register_case(new BenchmarkCase("Push 50 int with extended 40", push_expansible<40,50>));
+    this->register_case(new BenchmarkCase("Push 50 int with extended 30", push_expansible<30,50>));
     this->register_case(new BenchmarkCase("Copy max size 50 with 10 elements (without copy overload)", &case7));
     this->register_case(new BenchmarkCase("Copy extended 10 with 10 elements", &case8));
 
