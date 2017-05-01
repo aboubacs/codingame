@@ -2,7 +2,7 @@
 #include "GroupArrayMaxSize.h"
 #include "GroupArrayExtendable.h"
 #include "macros.h"
-
+#include "Optimize.h"
 
 GroupArrayMaxSize<int, 50> global_1;
 GroupArrayExtendable<int, 10> global_2;
@@ -61,7 +61,7 @@ void case8() {
 }
 
 void BenchmarkAbstractGroups::run(double allowed_time) {
-
+    cerr << "Running benckmark Groups :" << endl;
     this->m_time_control.set_checkpoint();
 
     this->register_case(new BenchmarkCase("Push 30 int with max size 50", &case1));

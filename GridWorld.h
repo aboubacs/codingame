@@ -6,9 +6,11 @@
 
 #define is_inside_grid(x,y) (x>=0 && y>= 0 && x<GRID_WIDTH && y<GRID_HEIGHT)
 
-class GridWorld : World {
+
+template<typename PlayerDecisionType, int nb_players>
+class GridWorld : World<PlayerDecisionType, nb_players> {
 public:
-    GridWorld();
+    GridWorld(){};
 
 };
 

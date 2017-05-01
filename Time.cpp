@@ -6,10 +6,15 @@ Time::Time() {
 void Time::set_checkpoint() {
     m_checkpoint_time = high_resolution_clock::now();
 }
+
 bool Time::is_elapsed(double time) {
+    return get_time_left(time) <= 0;
+}
+
+double Time::get_time_left(double time) const {
     return (
-        duration_cast<duration<double>> (
-            high_resolution_clock::now() - m_checkpoint_time
-        ).count() >= time
+        time - duration_cast<duration<double>> (
+            NOW - m_checkpoint_time
+        ).count()
     );
 }
