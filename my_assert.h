@@ -1,3 +1,5 @@
+#pragma once //<ck:del>
+
 #include <assert.h>
 
 #include "config.h"

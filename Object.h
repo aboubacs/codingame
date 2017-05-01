@@ -3,6 +3,7 @@
 #include <string>
 
 #include "config.h"
+#include "Logger.h"
 
 using namespace std;
 
@@ -15,6 +16,7 @@ public:
     string obj_name;
     static uint64_t obj_sid;
     uint64_t obj_id;
+    Logger obj_logger;
 #else
     Object();
 #endif

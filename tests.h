@@ -6,10 +6,10 @@
 
 #include "default_tests.h"
 
-#define DO_RUN_TESTS() \
-    DO_RUN_DEFAULT_TESTS() \
+void DO_RUN_TESTS() {
+    DO_RUN_DEFAULT_TESTS();
     Test::run_all();
-
+}
 
 #endif
 

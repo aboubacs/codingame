@@ -10,7 +10,11 @@ using namespace std;
 
 uint64_t Object::obj_sid = 0;
 
-Object::Object(const string& name) {
+#ifdef LOG_ON_COUT
+Object::Object(const string& name) : obj_logger(this, cout) {
+#else
+Object::Object(const string& name) : obj_logger(this, cerr) {
+#endif
     obj_id = ++Object::obj_sid;
     obj_name = name;
     ASSERT(obj_id == Object::obj_sid);
