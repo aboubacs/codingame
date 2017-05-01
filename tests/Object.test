@@ -14,7 +14,7 @@ public:
     Object_test():Test() {}
 
     void run() {
-        cerr << "Running Object_tests : " << endl;
+        cerr << "Running Object tests : " << endl;
 
 #ifdef OBJECT_PROPERTIES
         Object obj = Object();

@@ -2,13 +2,13 @@
 
 #include <vector>
 
-#include "GroupArrayMaxSize.h"
+#include "CappedArray.h"
 
 template<typename T, uint32_t S>
-class GroupArrayExpansible : public GroupArrayMaxSize<T,S> {
+class ExpansibleArray : public CappedArray<T,S> {
 public:
-    GroupArrayExpansible() : GroupArrayMaxSize<T, S>() {}
-    GroupArrayExpansible(const string& name) : GroupArrayMaxSize<T, S>(name) {}
+    ExpansibleArray() : CappedArray<T, S>() {}
+    ExpansibleArray(const string& name) : CappedArray<T, S>(name) {}
 
     void push(const T& t) {
         if (is_static_full()) {

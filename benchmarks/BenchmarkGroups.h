@@ -2,9 +2,9 @@
 
 #include "Benchmark.h"
 
-class BenchmarkAbstractGroups : public Benchmark {
+class BenchmarkGroups : public Benchmark {
 public:
-    BenchmarkAbstractGroups();
+    BenchmarkGroups();
     void run(double allowed_time);
 };
 

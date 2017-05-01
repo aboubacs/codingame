@@ -4,10 +4,10 @@
 
 #ifdef RUN_BENCHMARKS
 
-#include "BenchmarkAbstractGroups.h"
+#include "BenchmarkGroups.h"
 
 void DO_RUN_BENCHMARKS() {
-    BenchmarkAbstractGroups groups;
+    BenchmarkGroups groups;
     cerr << "Running benchmarks. It will take "
          << BENCHMARKS_ALLOCATED_TIME
          << " seconds" << endl;

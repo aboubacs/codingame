@@ -1,16 +1,16 @@
 #pragma once
 
-#include "../simulation/data_structures/group/GroupArrayExpansible.h"
+#include "../simulation/data_structures/group/ExpansibleArray.h"
 #include "../util/my_assert.h"
 
-class GroupArrayExpansible_test : Test {
+class ExpansibleArray_test : Test {
 public:
-    GroupArrayExpansible_test() : Test() {}
+    ExpansibleArray_test() : Test() {}
 
     void run() {
-        cerr << "Running GroupArrayExpansible :" << endl;
+        cerr << "Running ExpansibleArray tests :" << endl;
 
-        GroupArrayExpansible<int, 3> g;
+        ExpansibleArray<int, 3> g;
         ASSERT(g.get_size() == 0);
         g.push(42);
         ASSERT(g.get_size() == 1);

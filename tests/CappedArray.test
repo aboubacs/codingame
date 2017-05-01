@@ -1,15 +1,15 @@
 #pragma once
 
-#include "../simulation/data_structures/group/GroupArrayMaxSize.h"
+#include "../simulation/data_structures/group/CappedArray.h"
 #include "../util/my_assert.h"
 
-class GroupArrayMaxSize_test : Test {
+class CappedArray_test : Test {
 public:
-    GroupArrayMaxSize_test() : Test() {}
+    CappedArray_test() : Test() {}
 
     void run() {
-        cerr << "Running GroupArrayMaxSize_tests :" << endl;
-        GroupArrayMaxSize<int, 3> g;
+        cerr << "Running CappedArray tests :" << endl;
+        CappedArray<int, 3> g;
         ASSERT(g.get_size() == 0);
         g.push(42);
         ASSERT(g.get_size() == 1);

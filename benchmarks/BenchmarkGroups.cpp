@@ -1,6 +1,6 @@
-#include "BenchmarkAbstractGroups.h"
-#include "../simulation/data_structures/group/GroupArrayMaxSize.h"
-#include "../simulation/data_structures/group/GroupArrayExpansible.h"
+#include "BenchmarkGroups.h"
+#include "../simulation/data_structures/group/CappedArray.h"
+#include "../simulation/data_structures/group/ExpansibleArray.h"
 #include "../util/macros.h"
 
 struct big_object {
@@ -8,12 +8,12 @@ struct big_object {
     int32_t fill[256];
 };
 
-GroupArrayMaxSize<int, 50> global_1;
-GroupArrayExpansible<int, 10> global_2;
-GroupArrayMaxSize<big_object, 50> global_3;
-GroupArrayExpansible<big_object, 10> global_4;
+CappedArray<int, 50> global_1;
+ExpansibleArray<int, 10> global_2;
+CappedArray<big_object, 50> global_3;
+ExpansibleArray<big_object, 10> global_4;
 
-BenchmarkAbstractGroups::BenchmarkAbstractGroups() {
+BenchmarkGroups::BenchmarkGroups() {
     loop(i, 10) {
         global_1.push(42);
     }
@@ -25,7 +25,7 @@ BenchmarkAbstractGroups::BenchmarkAbstractGroups() {
 
 template<int s, int l>
 void push_max_size_int() {
-    GroupArrayMaxSize<int, s> g;
+    CappedArray<int, s> g;
     loop(i, l) {
         g.push(42);
     }
@@ -33,7 +33,7 @@ void push_max_size_int() {
 
 template<int s, int l>
 void push_expansible_int() {
-    GroupArrayExpansible<int, s> g;
+    ExpansibleArray<int, s> g;
     loop(i, l) {
         g.push(42);
     }
@@ -41,7 +41,7 @@ void push_expansible_int() {
 
 template<int s, int l>
 void push_max_size_obj() {
-    GroupArrayMaxSize<big_object, s> g;
+    CappedArray<big_object, s> g;
     loop(i, l) {
         g.push(big_object());
     }
@@ -49,7 +49,7 @@ void push_max_size_obj() {
 
 template<int s, int l>
 void push_expansible_obj() {
-    GroupArrayExpansible<big_object, s> g;
+    ExpansibleArray<big_object, s> g;
     loop(i, l) {
         g.push(big_object());
     }
@@ -71,7 +71,7 @@ void case10() {
 
 
 
-void BenchmarkAbstractGroups::run(double allowed_time) {
+void BenchmarkGroups::run(double allowed_time) {
     ASSERT(allowed_time > 0);
 
     cerr << "Running benckmark Groups :" << endl;

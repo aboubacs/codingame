@@ -7,12 +7,12 @@
 #include "../../../util/my_assert.h"
 
 template<typename T, uint32_t S>
-class GroupArrayMaxSize : public AbstractGroup<T> {
+class CappedArray : public AbstractGroup<T> {
 public:
-    GroupArrayMaxSize() : AbstractGroup<T>() {
+    CappedArray() : AbstractGroup<T>() {
         clear();
     }
-    GroupArrayMaxSize(const string& name) : AbstractGroup<T>(name) {
+    CappedArray(const string& name) : AbstractGroup<T>(name) {
         clear();
     }
     void push(const T& t) {
