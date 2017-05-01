@@ -61,6 +61,8 @@ public:
                 COPY_ARRAY(best_decisions, decisions);
             }
         }
+        ASSERT(counter > 0);
+        ASSERT(best_eval != - numeric_limits<float>::infinity());
         return AlgorithmResult<PlayerDecisionType, depth>(best_decisions, counter);
     };
 

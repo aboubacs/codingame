@@ -7,7 +7,7 @@
 #include "default_tests.h"
 
 void DO_RUN_TESTS() {
-    DO_RUN_DEFAULT_TESTS();
+    register_default_tests();
     Test::run_all();
 }
 
