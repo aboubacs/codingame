@@ -10,7 +10,7 @@
 #include "../../util/macros.h"
 
 template<typename WorldType, typename PlayerDecisionType, int nb_players, int depth>
-class MonteCarlo : Algorithm<WorldType, PlayerDecisionType, nb_players, depth> {
+class BasicMonteCarlo : Algorithm<WorldType, PlayerDecisionType, nb_players, depth> {
     static_assert(
             is_base_of<
                     World<PlayerDecisionType, nb_players>,
@@ -31,7 +31,7 @@ class MonteCarlo : Algorithm<WorldType, PlayerDecisionType, nb_players, depth> {
             "Number of players should be at least 2"
     );
 public:
-    MonteCarlo(){}
+    BasicMonteCarlo(){}
     AlgorithmResult<PlayerDecisionType, depth> run(
         const WorldType& world,
         double allowed_time,
