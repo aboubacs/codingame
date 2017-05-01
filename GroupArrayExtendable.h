@@ -51,6 +51,7 @@ public:
                 }
             } else {
                 ASSERT(i < S+m_dynamic_data.size());
+                this->m_dynamic_data.erase(this->m_dynamic_data.begin()+(i-S));
             }
         } else {
             ASSERT((this->m_current_size - i - 1) > 0);
