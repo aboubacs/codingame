@@ -4,3 +4,6 @@
 
 #include <cstring>
 #define COPY_ARRAY(dst, src) memcpy(dst, src, sizeof(dst));
+
+#define MAX(a, b) (a>b?a:b)
+#define MIN(a, b) (a>b?b:a)

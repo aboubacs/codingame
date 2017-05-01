@@ -31,7 +31,7 @@ class BasicMonteCarlo : Algorithm<WorldType, PlayerDecisionType, nb_players, dep
             "Number of players should be at least 2"
     );
 public:
-    BasicMonteCarlo(){}
+    BasicMonteCarlo():Algorithm<WorldType, PlayerDecisionType, nb_players, depth>(){}
     AlgorithmResult<PlayerDecisionType, depth> run(
         const WorldType& world,
         double allowed_time,
@@ -63,7 +63,7 @@ public:
         }
         ASSERT(counter > 0);
         ASSERT(best_eval != - numeric_limits<float>::infinity());
-        return AlgorithmResult<PlayerDecisionType, depth>(best_decisions, counter);
+        return AlgorithmResult<PlayerDecisionType, depth>(best_decisions, counter, best_eval);
     };
 
 protected:
