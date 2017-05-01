@@ -9,11 +9,12 @@ class AlgorithmResult : Object {
 public:
     AlgorithmResult(){};
     AlgorithmResult(PlayerDecisionType player_decisions[], int it) :
-        number_of_iterations(it) {
+        m_number_of_iterations(it) {
         COPY_ARRAY(m_player_decisions, player_decisions);
+        ASSERT(m_number_of_iterations > 0);
     }
 
     PlayerDecisionType m_player_decisions[depth];
-    int number_of_iterations;
+    int m_number_of_iterations;
 };
 

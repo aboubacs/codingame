@@ -40,6 +40,7 @@ public:
         vector<TurnDecision<PlayerDecisionType, nb_players>> context)=0;
 
     void set_decision_generator(DecisionGenerator<PlayerDecisionType, nb_players>* generator) {
+        ASSERT(generator != nullptr);
         m_generator = generator;
     }
 

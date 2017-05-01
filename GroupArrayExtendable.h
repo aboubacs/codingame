@@ -27,6 +27,7 @@ public:
     T& get(int i) {
         ASSERT(i > 0);
         if (i < S) {
+            ASSERT(i < this->m_current_size);
             return this->m_data[i];
         } else {
             ASSERT(i < S+m_dynamic_data.size());
@@ -47,6 +48,7 @@ public:
                     this->m_data[S-1] = m_dynamic_data[0];
                     this->m_dynamic_data.erase(this->m_dynamic_data.begin());
                 } else {
+                    ASSERT(this->m_current_size == S);
                     this->m_current_size--;
                 }
             } else {

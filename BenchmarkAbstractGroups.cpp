@@ -61,6 +61,8 @@ void case8() {
 }
 
 void BenchmarkAbstractGroups::run(double allowed_time) {
+    ASSERT(allowed_time > 0);
+
     cerr << "Running benckmark Groups :" << endl;
     this->m_time_control.set_checkpoint();
 
