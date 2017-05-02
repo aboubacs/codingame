@@ -14,7 +14,7 @@ template<
     int nb_retry
 >
 class MemoryMonteCarlo :
-    BasicMonteCarlo<
+    public BasicMonteCarlo<
         WorldType,
         PlayerDecisionType,
         nb_players,
@@ -58,8 +58,8 @@ public:
         this->m_time_control.set_checkpoint();
         float best_eval_memorized = - numeric_limits<float>::infinity();
         PlayerDecisionType best_memory_decisions[depth];
-        loop(i, MAX(depth,m_turn-1)) {
-            auto decisions = m_memorized.get(i);
+        loop(i, MAX(depth, m_turn-1)) {
+            PlayerDecisionType* decisions = m_memorized.get(i);
             memmove(
                 decisions,
                 decisions+1,

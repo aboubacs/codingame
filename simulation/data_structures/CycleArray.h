@@ -10,10 +10,22 @@ public:
         iid = 0;
     }
 
-    T& get(int i) const {
+    const T& get(int i) const {
         ASSERT(i >= 0);
         ASSERT(i < size);
         return m_data[i];
+    }
+
+    T& get_ref(int i) {
+        ASSERT(i >= 0);
+        ASSERT(i < size);
+        return m_data[i];
+    }
+
+    T* get_pointer(int i) const {
+        ASSERT(i >= 0);
+        ASSERT(i < size);
+        return &(m_data[size]);
     }
 
     void set_and_turn(const T& t) {

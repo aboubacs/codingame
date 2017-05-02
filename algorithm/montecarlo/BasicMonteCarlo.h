@@ -10,7 +10,7 @@
 #include "../../util/macros.h"
 
 template<typename WorldType, typename PlayerDecisionType, int nb_players, int depth>
-class BasicMonteCarlo : Algorithm<WorldType, PlayerDecisionType, nb_players, depth> {
+class BasicMonteCarlo : public Algorithm<WorldType, PlayerDecisionType, nb_players, depth> {
     static_assert(
             is_base_of<
                     World<PlayerDecisionType, nb_players>,
