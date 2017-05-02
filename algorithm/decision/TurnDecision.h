@@ -1,7 +1,7 @@
 #pragma once //<ck:del>
 
 #include "../../util/Object.h"
-#include "PlayerDecision.h"
+#include "implems/PlayerDecision.h"
 #include "../../util/my_assert.h"
 
 template<typename PlayerDecisionType, int nb_players>

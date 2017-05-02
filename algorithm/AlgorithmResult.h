@@ -1,7 +1,7 @@
 #pragma once //<ck:del>
 
 #include "../util/Object.h"
-#include "decision/PlayerDecision.h"
+#include "decision/implems/PlayerDecision.h"
 #include "../util/macros.h"
 
 template <typename PlayerDecisionType, int depth>
