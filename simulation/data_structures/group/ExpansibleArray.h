@@ -6,6 +6,7 @@
 
 template<typename T, uint32_t S>
 class ExpansibleArray : public CappedArray<T,S> {
+    friend class ExpansibleArray_test;
 public:
     ExpansibleArray() : CappedArray<T, S>() {}
     ExpansibleArray(const string& name) : CappedArray<T, S>(name) {}

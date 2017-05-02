@@ -1,0 +1,47 @@
+#pragma once
+
+#include "../simulation/data_structures/CycleArray.h"
+#include "../util/my_assert.h"
+
+
+class CycleArray_test : public Test {
+public:
+    CycleArray_test() : Test() {}
+
+    void run() {
+        cerr << "Running CycleArray tests :" << endl;
+        CycleArray<int, 3> arr;
+        ASSERT(arr.iid == 0);
+        arr.set_and_turn(1);
+        ASSERT(arr.iid == 1);
+        ASSERT(arr.get(0) == 1);
+        arr.set_and_turn(20);
+        ASSERT(arr.iid == 2);
+        ASSERT(arr.get(1) == 20);
+        arr.set(0, -5);
+        ASSERT(arr.iid == 2);
+        ASSERT(arr.get(0) == -5);
+        arr.set(2, 12);
+        ASSERT(arr.iid == 2);
+        ASSERT(arr.get(2) == 12);
+        arr.set_and_turn(13);
+        ASSERT(arr.iid == 0);
+        ASSERT(arr.get(0) == -5);
+        ASSERT(arr.get(1) == 20);
+        ASSERT(arr.get(2) == 13);
+        arr.set_and_turn(7);
+        ASSERT(arr.iid == 1);
+        ASSERT(arr.get(0) == 7);
+        ASSERT(arr.get(1) == 20);
+        ASSERT(arr.get(2) == 13);
+        int v = arr.get(0);
+        v = 2;
+        ASSERT(arr.get(0) == 7);
+        int& v2 = arr.get_ref(1);
+        v2 = 3;
+        ASSERT(arr.get(0) == 7);
+        ASSERT(arr.get(1) == 3);
+        ASSERT(arr.get(2) == 13);
+        ASSERT(arr.iid == 1);
+    }
+};

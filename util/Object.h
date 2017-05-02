@@ -8,6 +8,7 @@
 using namespace std;
 
 class Object {
+    friend class Object_test;
 public:
     void show();
 

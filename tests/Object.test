@@ -9,7 +9,7 @@
 
 using namespace std;
 
-class Object_test : Test {
+class Object_test : public Test {
 public:
     Object_test():Test() {}
 

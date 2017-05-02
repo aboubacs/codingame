@@ -5,6 +5,7 @@
 
 template<typename T, int size>
 class CycleArray : public Object {
+    friend class CycleArray_test;
 public:
     CycleArray() : Object() {
         iid = 0;
@@ -20,12 +21,6 @@ public:
         ASSERT(i >= 0);
         ASSERT(i < size);
         return m_data[i];
-    }
-
-    T* get_pointer(int i) const {
-        ASSERT(i >= 0);
-        ASSERT(i < size);
-        return &(m_data[size]);
     }
 
     void set_and_turn(const T& t) {

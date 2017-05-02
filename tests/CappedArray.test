@@ -3,7 +3,7 @@
 #include "../simulation/data_structures/group/CappedArray.h"
 #include "../util/my_assert.h"
 
-class CappedArray_test : Test {
+class CappedArray_test : public Test {
 public:
     CappedArray_test() : Test() {}
 

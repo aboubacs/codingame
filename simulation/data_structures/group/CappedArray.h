@@ -8,6 +8,7 @@
 
 template<typename T, uint32_t S>
 class CappedArray : public AbstractGroup<T> {
+    friend class CappedArray_test;
 public:
     CappedArray() : AbstractGroup<T>() {
         clear();

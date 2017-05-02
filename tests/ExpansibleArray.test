@@ -3,7 +3,7 @@
 #include "../simulation/data_structures/group/ExpansibleArray.h"
 #include "../util/my_assert.h"
 
-class ExpansibleArray_test : Test {
+class ExpansibleArray_test : public Test {
 public:
     ExpansibleArray_test() : Test() {}
 
