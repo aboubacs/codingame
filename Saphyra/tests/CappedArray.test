@@ -1,0 +1,44 @@
+#pragma once
+
+#include "../simulation/data_structures/CappedArray.h"
+#include "../util/my_assert.h"
+
+class CappedArray_test : public Test {
+public:
+    CappedArray_test() : Test() {}
+
+    void run() {
+        cerr << "Running CappedArray tests :" << endl;
+        CappedArray<int, 3> g;
+        ASSERT(g.get_size() == 0);
+        g.push(42);
+        ASSERT(g.get_size() == 1);
+        ASSERT(g.get(0) == 42);
+        g.push(12);
+        ASSERT(g.get_size() == 2);
+        ASSERT(g.get(0) == 42);
+        ASSERT(g.get(1) == 12);
+        g.push(-5);
+        ASSERT(g.get_size() == 3);
+#ifdef LOG_GROUP_ARRAY_MAX_SIZE_ERRORS
+#undef LOG_GROUP_ARRAY_MAX_SIZE_ERRORS
+        g.push(78);
+        ASSERT(g.get_size() == 3);
+#define LOG_GROUP_ARRAY_MAX_SIZE_ERRORS
+#else
+        g.push(78);
+        ASSERT(g.get_size() == 3);
+#endif
+        g.remove(0);
+        ASSERT(g.get_size() == 2);
+        ASSERT(g.get(0) == 12);
+        ASSERT(g.get(1) == -5);
+        g.remove(1);
+        ASSERT(g.get_size() == 1);
+        ASSERT(g.get(0) == 12);
+        g.clear();
+        ASSERT(g.get_size() == 0);
+    }
+};
+
+

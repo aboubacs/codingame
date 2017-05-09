@@ -1,0 +1,84 @@
+#pragma once
+
+#include "../simulation/data_structures/ExpansibleArray.h"
+#include "../util/my_assert.h"
+
+class ExpansibleArray_test : public Test {
+public:
+    ExpansibleArray_test() : Test() {}
+
+    void run() {
+        cerr << "Running ExpansibleArray tests :" << endl;
+
+        ExpansibleArray<int, 3> g;
+        ASSERT(g.get_size() == 0);
+        g.push(42);
+        ASSERT(g.get_size() == 1);
+        ASSERT(g.get(0) == 42);
+        g.push(12);
+        ASSERT(g.get_size() == 2);
+        ASSERT(g.get(0) == 42);
+        ASSERT(g.get(1) == 12);
+        g.push(-5);
+        ASSERT(g.get_size() == 3);
+        g.remove(0);
+        ASSERT(g.get_size() == 2);
+        ASSERT(g.get(0) == 12);
+        ASSERT(g.get(1) == -5);
+        g.remove(1);
+        ASSERT(g.get_size() == 1);
+        ASSERT(g.get(0) == 12);
+        g.clear();
+        ASSERT(g.get_size() == 0);
+        g.clear();
+        ASSERT(g.get_size() == 0);
+        g.push(0);
+        g.push(1);
+        g.push(2);
+        g.push(3);
+        ASSERT(g.get_size() == 4);
+        ASSERT(g.get(2) == 2);
+        ASSERT(g.get(3) == 3);
+        g.push(4);
+        ASSERT(g.get_size() == 5);
+        ASSERT(g.get(4) == 4);
+        g.remove(1);
+        ASSERT(g.get_size() == 4);
+        ASSERT(g.get(3) == 4);
+        ASSERT(g.get(2) == 3);
+        ASSERT(g.get(1) == 2);
+        ASSERT(g.get(0) == 0);
+        g.push(-5);
+        g.remove(4);
+        ASSERT(g.get_size() == 4);
+        ASSERT(g.get(3) == 4);
+        ASSERT(g.get(2) == 3);
+        ASSERT(g.get(1) == 2);
+        ASSERT(g.get(0) == 0);
+        g.push(-5);
+        g.remove(3);
+        ASSERT(g.get_size() == 4);
+        ASSERT(g.get(3) == -5);
+        ASSERT(g.get(2) == 3);
+        ASSERT(g.get(1) == 2);
+        ASSERT(g.get(0) == 0);
+        g.remove(3);
+        ASSERT(g.get_size() == 3);
+        ASSERT(g.get(2) == 3);
+        ASSERT(g.get(1) == 2);
+        ASSERT(g.get(0) == 0);
+        g.remove(2);
+        ASSERT(g.get_size() == 2);
+        ASSERT(g.get(1) == 2);
+        ASSERT(g.get(0) == 0);
+        g.push(8); g.push(8);
+        ASSERT(g.get_size() == 4);
+        g.remove(1);
+        ASSERT(g.get_size() == 3);
+        ASSERT(g.get(0) == 0);
+        ASSERT(g.get(1) == 8);
+        ASSERT(g.get(2) == 8);
+    }
+};
+
+
