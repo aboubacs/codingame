@@ -7,8 +7,6 @@
 
 #include <iostream>
 
-#include "util/my_assert.h"
-
 #include "tests/tests.h"
 #include "benchmarks/benchmarks.h"
 

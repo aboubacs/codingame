@@ -1,0 +1,10 @@
+
+{
+    "WorldInstance": "saphyra.realist.RealWorld",
+    "Generator": "saphyra.generator.DefaultGenerator",
+    "Algorithm": "saphyra.montecarlo.BasicMonteCarlo",
+    "Emulate": [],
+    "TimeAllowedFirstTurn": 1000,
+    "TimeAllowed": 150
+}
+

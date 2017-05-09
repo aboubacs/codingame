@@ -1,0 +1,45 @@
+
+void parser_init() {
+
+    for (int i = 0; i < sub::NBPOD; i++) {
+        laps[i] = 0;
+        lcpid[i] = -1;
+        sub::WorldInstance.pods[i].id = i;
+        sub::WorldInstance.pods[i].boost_available = true;
+        sub::WorldInstance.pods[i].ncpid = 1;
+    }
+    nb_laps = 0;
+    turn = 0;
+
+    cin >> nblaps; cin.ignore();
+    cin >> checkpointCount; cin.ignore();
+    for (int i = 0; i < checkpointCount; i++) {
+        int cx, cy;
+        cin >> cx >> cy; cin.ignore();
+        sub::WorldInstance.cp[i] = Checkpoint(i,cx,cy);
+    }
+}
+
+void parser_turn() {
+    for (int i = 0; i < sub::NBPOD; i++) {
+        int x,y,vx,vy,angle,nextCheckpointId;
+        cin >> x >> y >> vx >> vy >> angle >> nextCheckpointId; cin.ignore();
+
+        sub::WorldInstance.pods[i].x = x;
+        sub::WorldInstance.pods[i].y = y;
+        sub::WorldInstance.pods[i].vx = vx;
+        sub::WorldInstance.pods[i].vy = vy;
+        if (angle == -1) {
+            sub::WorldInstance.pods[i].angle = sub::WorldInstance.pods[i].getAngle(
+                sub::WorldInstance.cp[1]
+            );
+        } else {
+            sub::WorldInstance.pods[i].angle = angle;
+        }
+        if (lcpid[i] == 0 && nextCheckpointId == 1)
+            laps[i]++;
+        sub::WorldInstance.pods[i].ncpid = nextCheckpointId;
+        sub::WorldInstance.pods[i].lap = laps[i];
+        lcpid[i] = nextCheckpointId;
+    }
+}

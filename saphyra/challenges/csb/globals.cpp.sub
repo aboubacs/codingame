@@ -1,0 +1,6 @@
+
+int laps[sub::NBPOD];
+int lcpid[sub::NBPOD];
+int nblaps;
+int checkpointCount;
+int turn;
